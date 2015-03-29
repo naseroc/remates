@@ -19,6 +19,7 @@
       </ul>
       
         <ul class="nav navbar-nav navbar-right">
+        <li> <a href="/admin" title="">Administrador</a></li>
         <% if user_signed_in? %>
         <li>Te has logueado como <%= current_user.email %></li>
           <li><%= link_to 'logout', destroy_user_session_path, method:'delete' %></li>
