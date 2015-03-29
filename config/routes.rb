@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
+  get 'closed' => 'products#closed', as: :closed
+
   resources :products, only:[:index, :show]
 
 
