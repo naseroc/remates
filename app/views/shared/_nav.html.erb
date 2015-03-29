@@ -19,9 +19,8 @@
       </ul>
       
         <ul class="nav navbar-nav navbar-right">
-        <li> <a href="/admin" title="">Administrador</a></li>
+        <li> <%= link_to 'Administrador', admin_root_path %>   </li>
         <% if user_signed_in? %>
-        <li>Te has logueado como <%= current_user.email %></li>
           <li><%= link_to 'logout', destroy_user_session_path, method:'delete' %></li>
         <% else %>
           <li><%= link_to 'Login',  new_user_session_path %></li>
