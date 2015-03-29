@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.css">
+	<link rel="stylesheet" href="http://bootswatch.com/cosmo/bootstrap.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	
@@ -20,7 +20,10 @@
 
 	<%= csrf_meta_tags %>
 </head>
+
 <body>
+
+<%= render partial:'shared/nav' %>
 
 	<%= yield %>
 

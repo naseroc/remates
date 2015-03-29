@@ -20,4 +20,16 @@ before_action :authenticate_user!
 
 	def destroy
 	end
+
+	def mybets
+		@bets = current_user.bets
+	end
+
+private
+  def caduca(product)
+  	seconds = product.created_at + product.additionaltime - Time.now
+  	horas = ((seconds/3600).to_i)%24 
+  	minutos = ((seconds/60).to_i)%60
+  	return "#{horas} hora(s) y #{minutos} minuto(s)"
+  end
 end
