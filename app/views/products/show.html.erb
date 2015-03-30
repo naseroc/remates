@@ -24,7 +24,11 @@
 					<p><%= @product.description%></p>
 					<p>Precio: <%= @product.price %></p>
 					<% if @product.available == false %>
-					<div class="alert alert-info" role="alert">Remate cerrado</div>
+						<% if @product.winner == current_user.id %>
+						<div class="alert alert-info" role="alert">Remate cerrado, GANASTE</div>
+						<% else %>
+						<div class="alert alert-info" role="alert">Remate cerrado, PERDISTE</div>
+						<% end %>
 					<% else %>
 					<p>Remate finaliza en: <%=@caduca%></p>
 					<p><%= link_to 'Subir apuesta en $500', new_product_bet_path(@product), class:"btn btn-primary" %></p>

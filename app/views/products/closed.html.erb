@@ -25,8 +25,12 @@
 					<p><%= product.description%></p>
 					<p>Precio: <%= product.price %></p>
 					<% if product.available == false %>
-					Ganador: <%= product.winner %>
-
+						<% if product.winner == current_user.id %>
+						<div class="alert alert-info" role="alert">Remate cerrado, GANASTE</div>
+						<% else %>
+						<div class="alert alert-info" role="alert">Remate cerrado, PERDISTE</div>
+						<% end %>
+					Ganador (info para hacer debugg): <%= product.winner %>
 					<% else %>
 					<p> <%= link_to 'Producto disponible', product_path(product), class:'alert alert-success' %></p>
 					<% end %>

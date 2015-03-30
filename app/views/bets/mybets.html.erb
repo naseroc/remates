@@ -25,7 +25,11 @@
 					<p><%= bet.product.description%></p>
 					<p>Precio: <%= bet.product.price %></p>
 					<% if bet.product.available == false %>
-					<div class="alert alert-info" role="alert">Remate cerrado</div>
+						<% if bet.product.winner == current_user.id %>
+						<div class="alert alert-info" role="alert">Remate cerrado, GANASTE</div>
+						<% else %>
+						<div class="alert alert-info" role="alert">Remate cerrado, PERDISTE</div>
+						<% end %>
 					<% else %>
 					<p> Caduca en <%= (((bet.product.created_at + bet.product.additionaltime - Time.now)/3600).to_i)%24 %> horas <%= (((bet.product.created_at + bet.product.additionaltime - Time.now)/60).to_i)%60 %> minutos</p>
 					<p><%= link_to 'Subir apuesta en $500', new_product_bet_path(bet.product), class:"btn btn-primary" %></p>
